@@ -1,6 +1,6 @@
 # Project: Kaggle Survey 2020
 
-[![Binder](https://mybinder.org/badge_logo.svg)]()
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/datainpoint/project-kaggle-survey-2020/HEAD?filepath=project-kaggle-survey-2020.ipynb)
 
 [Link to Kaggle Notebook](https://www.kaggle.com/yaojenkuo/notebook-kaggle-survey-2020)
 
