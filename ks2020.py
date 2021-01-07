@@ -62,10 +62,13 @@ class KaggleSurvey2020:
         questions = self.generate_questions()
         column_iloc = questions[questions['question_index'] == question_index].index
         ith_question = self._survey_response.iloc[:, column_iloc]
+        unique_questions = self.generate_unique_questions()
+        ith_unique_question = unique_questions[unique_questions['question_index'] == question_index]
+        question_desc = ith_unique_question['question_desc'].values[0]
+        print(question_desc)
         # Use simple value_counts for multiple choice questions
         if column_iloc.size == 1:
             summary = ith_question[question_index].value_counts(normalize=True).sort_values()
-            return summary
         # Use iteration for multiple selection questions
         else:
             freq_counts = dict()
@@ -101,7 +104,8 @@ class KaggleSurvey2020:
         axes.spines['right'].set_visible(False)
         axes.spines['top'].set_visible(False)
         axes.tick_params(length=0)
-        ith_question = unique_questions[unique_questions['question_index'] == question_index]
-        question_desc = ith_question['question_desc'].values[0]
+        unique_questions = self.generate_unique_questions()
+        ith_unique_question = unique_questions[unique_questions['question_index'] == question_index]
+        question_desc = ith_unique_question['question_desc'].values[0]
         axes.set_title(question_desc)
         plt.show()
